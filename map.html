@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var iframe = document.querySelector('iframe'); // Select the iframe
+
+            function resizeIframe() {
+                var viewportWidth = window.innerWidth;
+                var viewportHeight = window.innerHeight;
+                // Example: Set iframe size to 80% of viewport dimensions
+                iframe.style.width = viewportWidth * 0.8 + 'px';
+                iframe.style.height = viewportHeight * 0.8 + 'px';
+            }
+
+            resizeIframe(); // Resize on load
+            window.addEventListener('resize', resizeIframe); // Resize on window resize
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/itinerary.html">Daily Itinerary</a></li>
+                <li><a href="/photos.html">Photos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Interactive Map</h1>
+    <div class="iframe-container">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1xF4E-26AbbXF7brd3HiqbZfu7IT4eyY&ehbc=2E312F"></iframe>
+    </div>
+</body>
+</html>
