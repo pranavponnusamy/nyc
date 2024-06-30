@@ -8,27 +8,54 @@
     <title>Itinerary</title>
 
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.14/index.global.min.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+
 
     <script type='text/javascript'>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new Calendar(calendarEl, {
-                plugins: [ googleCalendarPlugin ],
-                googleCalendarApiKey: '<AIzaSyDqYey5lm_Xi4mrxanPXlmB8xa6WrmO1qA>',
-                events: {
-                  googleCalendarId: 'pranavponns@gmail.com'
-                }
-              });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var calendarEl = document.getElementById("calendar");
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                themeSystem: 'bootstrap5',
+                googleCalendarApiKey: "AIzaSyDqYey5lm_Xi4mrxanPXlmB8xa6WrmO1qA",
+                eventSources: [
+                    {
+                        googleCalendarId: "73a6f2a7068061da0685506de077d3d496494d8b405428465e99f23d45a5f344@group.calendar.google.com",
+                    }
+                ],
+                initialView: "timeGridFiveDay",
+                views: {
+                    timeGridFiveDay: {
+                        type: 'timeGrid',
+                        visibleRange: {
+                            start: '2024-07-04',
+                            end: '2024-07-09'
+                        }
+                    }
+                },
+                headerToolbar: false,
+                aspectRatio: 2,
+                height: "auto",
+                eventColor: '#BLUE',
+                eventTextColor: 'WHITE',
+
+
+            });
+
             calendar.render();
-          });
-    
+        });
+
+
     </script>
 
 </head>
 
 <body>
 
-    <div id='calendar'></div>
+
     <header>
         <nav>
             <ul>
@@ -39,9 +66,11 @@
         </nav>
     </header>
     <h1>Itinerary</h1>
+    <br>
 
 
-    <button type="button" class="collapsible">Day 1 (Arrival)</button>
+
+    <!-- <button type="button" class="collapsible">Day 1 (Arrival)</button>
     <div class="content">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -70,9 +99,9 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat.</p>
-    </div>
+    </div> -->
 
-    <script>
+    <!-- <script>
         var coll = document.getElementsByClassName("collapsible");
         var i;
 
@@ -87,7 +116,9 @@
                 }
             });
         }
-    </script>
+    </script> -->
+ 
+    <div id='calendar'></div>
 
 </body>
 
